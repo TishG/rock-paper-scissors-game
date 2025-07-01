@@ -17,6 +17,7 @@ export default function RulesModalDesktop({ show, setShow }: RulesModalProps) {
 			<div className='flex-grow flex justify-center items-center'>
 				<img src={imageRulesLogo} alt='game rules' />
 			</div>
+			{/* fix close button not working on click, add tests */}
 			<div className='pb-10 flex justify-center'>
 				<button onClick={() => setShow(!show)}>
 					<img src={close} alt='close' />
