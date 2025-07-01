@@ -7,7 +7,7 @@ export default function Rules({ onClick, show }: RulesProps) {
 	return (
 		<button
 			onClick={() => onClick(!show)}
-			className='text-white border-1 border-white rounded-sm py-2 px-10'
+			className='text-white border-1 border-white rounded-sm py-2 px-10 cursor-pointer'
 		>
 			rules
 		</button>

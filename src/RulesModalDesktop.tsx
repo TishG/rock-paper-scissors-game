@@ -7,22 +7,24 @@ type RulesModalProps = {
 };
 
 export default function RulesModalDesktop({ show, setShow }: RulesModalProps) {
-	const conditionalShow = show ? 'block' : 'hidden';
-
-	return (
+	return show ? (
 		<div
-			className={`h-screen w-screen bg-white flex flex-col items-center ${conditionalShow}`}
+			data-testid='rules-modal'
+			className='h-screen w-screen bg-white flex flex-col items-center'
 		>
 			<h1 className='text-slate-700 text-3xl font-bold pt-10'>rules</h1>
 			<div className='flex-grow flex justify-center items-center'>
 				<img src={imageRulesLogo} alt='game rules' />
 			</div>
-			{/* fix close button not working on click, add tests */}
-			<div className='pb-10 flex justify-center'>
-				<button onClick={() => setShow(!show)}>
+			<div className='flex justify-center items-center'>
+				<button
+					aria-label='close'
+					onClick={() => setShow(false)}
+					className='cursor-pointer pb-[40px] mb-[40px]'
+				>
 					<img src={close} alt='close' />
 				</button>
 			</div>
 		</div>
-	);
+	) : null;
 }
