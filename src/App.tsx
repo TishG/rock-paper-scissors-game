@@ -1,26 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import RulesButton from './RulesButton';
+import RulesModalDesktop from './RulesModalDesktop';
+
+export default function App() {
+	const [show, setShow] = useState(false);
+
+	return (
+		<div className='relative h-screen w-screen bg-[url(../public/assets/original/main-background.jpg)]'>
+			<RulesModalDesktop show={show} setShow={setShow} />
+			<div className='absolute bottom-6 w-full flex justify-center lg:justify-end px-6'>
+				{' '}
+				<RulesButton onClick={setShow} show={show} />
+			</div>
+		</div>
+	);
 }
-
-export default App;
