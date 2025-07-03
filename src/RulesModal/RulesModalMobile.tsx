@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 import imageRulesLogo from '../image-rules.svg';
 import close from '../icon-close.svg';
 
@@ -12,15 +10,6 @@ export default function RulesModalMobile({
 	show,
 	setShow,
 }: RulesModalMobileProps) {
-	// preload images
-	useEffect(() => {
-		const img1 = new Image();
-		img1.src = imageRulesLogo;
-
-		const img2 = new Image();
-		img2.src = close;
-	}, []);
-
 	return show ? (
 		<div
 			data-testid='rules-modal'
