@@ -1,12 +1,26 @@
-import imageRulesLogo from './image-rules.svg';
-import close from './icon-close.svg';
+import { useEffect } from 'react';
 
-type RulesModalProps = {
+import imageRulesLogo from '../image-rules.svg';
+import close from '../icon-close.svg';
+
+type RulesModalMobileProps = {
 	show: boolean;
 	setShow: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export default function RulesModalDesktop({ show, setShow }: RulesModalProps) {
+export default function RulesModalMobile({
+	show,
+	setShow,
+}: RulesModalMobileProps) {
+	// preload images
+	useEffect(() => {
+		const img1 = new Image();
+		img1.src = imageRulesLogo;
+
+		const img2 = new Image();
+		img2.src = close;
+	}, []);
+
 	return show ? (
 		<div
 			data-testid='rules-modal'

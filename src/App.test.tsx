@@ -3,7 +3,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import RulesModalDesktop from './RulesModalDesktop';
+import RulesModal from './RulesModal/RulesModalSelecter';
 import RulesButton from './RulesButton';
 
 function WrapperComponent() {
@@ -11,7 +11,7 @@ function WrapperComponent() {
 	return (
 		<>
 			<RulesButton onClick={setShow} show={show} />
-			<RulesModalDesktop show={show} setShow={setShow} />
+			<RulesModal show={show} setShow={setShow} />
 		</>
 	);
 }
@@ -36,9 +36,10 @@ test('toggles rules modal on rules button/close button click', async () => {
 
 	const rulesModal = screen.getByTestId('rules-modal');
 	expect(rulesModal).toBeInTheDocument();
-
-	const closeButton = screen.getByRole('button', { name: /close/i });
-	await userEvent.click(closeButton);
+	// there are 2 modals, mobile and desktop
+	const closeButtons = screen.getAllByRole('button', { name: /close/i });
+	expect(closeButtons).toHaveLength(2);
+	await userEvent.click(closeButtons[0]);
 	// assert rules modal is closed
 	expect(screen.queryByTestId('rules-modal')).not.toBeInTheDocument();
 });
