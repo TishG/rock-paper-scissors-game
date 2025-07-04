@@ -12,7 +12,7 @@ export default function ScoreBoard({
 	return (
 		<div
 			className={`${
-				isRulesModalShowing ? 'hidden' : 'flex'
+				isRulesModalShowing ? 'hidden sm:flex' : 'flex'
 			} w-[90%] lg:w-[55%] mx-auto lg:flex justify-between border-solid border-[3px] border-white/50 rounded-lg lg:rounded-xl p-[25px]`}
 		>
 			<div>
