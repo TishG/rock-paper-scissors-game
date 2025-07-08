@@ -1,14 +1,16 @@
+import { MouseEvent } from 'react';
+
 import imageRulesLogo from '../image-rules.svg';
 import close from '../icon-close.svg';
 
 type RulesModalMobileProps = {
 	show: boolean;
-	setShow: React.Dispatch<React.SetStateAction<boolean>>;
+	setClose: (event: MouseEvent<HTMLButtonElement>) => void;
 };
 
 export default function RulesModalMobile({
 	show,
-	setShow,
+	setClose,
 }: RulesModalMobileProps) {
 	return show ? (
 		<div
@@ -22,7 +24,7 @@ export default function RulesModalMobile({
 			<div className='flex justify-center items-center'>
 				<button
 					aria-label='close'
-					onClick={() => setShow(false)}
+					onClick={setClose}
 					className='cursor-pointer pb-[40px] mb-[40px]'
 				>
 					<img src={close} alt='close' />

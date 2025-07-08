@@ -1,14 +1,16 @@
+import { MouseEvent } from 'react';
+
 import imageRulesLogo from '../image-rules.svg';
 import close from '../icon-close.svg';
 
 type RulesModalDesktopProps = {
 	show: boolean;
-	setShow: React.Dispatch<React.SetStateAction<boolean>>;
+	setClose: (event: MouseEvent<HTMLButtonElement>) => void;
 };
 
 export default function RulesModalDesktop({
 	show,
-	setShow,
+	setClose,
 }: RulesModalDesktopProps) {
 	return show ? (
 		//  Background blur layer
@@ -19,7 +21,7 @@ export default function RulesModalDesktop({
 						<h1 className='text-slate-700 text-3xl font-bold'>rules</h1>
 						<button
 							aria-label='close'
-							onClick={() => setShow(false)}
+							onClick={setClose}
 							className='cursor-pointer'
 						>
 							<img src={close} alt='close' />

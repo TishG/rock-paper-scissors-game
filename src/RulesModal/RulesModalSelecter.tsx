@@ -1,32 +1,21 @@
-import { useEffect } from 'react';
+import { MouseEvent } from 'react';
 
 import RulesModalDesktop from './RulesModalDesktop';
 import RulesModalMobile from './RulesModalMobile';
-import imageRulesLogo from '../image-rules.svg';
-import close from '../icon-close.svg';
 
 type RulesModalProps = {
 	show: boolean;
-	setShow: React.Dispatch<React.SetStateAction<boolean>>;
+	setClose: (event: MouseEvent<HTMLButtonElement>) => void;
 };
 
-export default function RulesModal({ show, setShow }: RulesModalProps) {
-	// preload images
-	useEffect(() => {
-		const img1 = new Image();
-		img1.src = imageRulesLogo;
-
-		const img2 = new Image();
-		img2.src = close;
-	}, []);
-
+export default function RulesModal({ show, setClose }: RulesModalProps) {
 	return (
 		<>
 			<div className='sm:hidden'>
-				<RulesModalMobile show={show} setShow={setShow} />
+				<RulesModalMobile show={show} setClose={setClose} />
 			</div>
 			<div className='hidden sm:block'>
-				<RulesModalDesktop show={show} setShow={setShow} />
+				<RulesModalDesktop show={show} setClose={setClose} />
 			</div>
 		</>
 	);
