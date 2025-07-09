@@ -24,6 +24,11 @@ export default function App() {
 		setUserChoice(choice);
 	}
 
+	function handleResetGame() {
+		setUserChoice(null);
+		setHouseChoice(null);
+	}
+
 	// preload images
 	useEffect(() => {
 		const img1 = new Image();
@@ -48,7 +53,7 @@ export default function App() {
 	return (
 		<div
 			className={`relative h-screen w-screen overflow-hidden ${
-				showRulesModal ? 'sm:pt-[40px]' : 'pt-[40px]'
+				showRulesModal ? 'sm:pt-[0px]' : 'pt-[25px]'
 			} bg-[url(../public/assets/original/main-background.jpg)]`}
 		>
 			<ScoreBoard score={score} isRulesModalShowing={showRulesModal} />
@@ -58,6 +63,8 @@ export default function App() {
 					userChoice={userChoice}
 					houseChoice={houseChoice}
 					handleUserChoice={handleUserChoice}
+					resetGame={() => handleResetGame()}
+					addToScore={() => setScore(score + 1)}
 				/>
 			</div>
 			<RulesModal

@@ -13,6 +13,8 @@ type GameStarterProps = {
 	userChoice: GameButtonValueType | null;
 	houseChoice: GameButtonValueType | null;
 	handleUserChoice: (choice: GameButtonValueType) => void;
+	resetGame: () => void;
+	addToScore: () => void;
 };
 
 export default function GameStarter({
@@ -20,12 +22,22 @@ export default function GameStarter({
 	userChoice,
 	houseChoice,
 	handleUserChoice,
+	resetGame,
+	addToScore,
 }: GameStarterProps) {
 	const { ROCK, PAPER, SCISSORS } = GAME_BUTTON_TYPES;
 	return isGameActive ? (
-		<GameActive userChoice={userChoice} houseChoice={houseChoice} />
+		<GameActive
+			userChoice={userChoice}
+			houseChoice={houseChoice}
+			resetGame={resetGame}
+			addToScore={addToScore}
+		/>
 	) : (
-		<div className='relative w-[300px] h-[300px] mx-auto'>
+		<div
+			data-testid='game-starter'
+			className='relative w-[300px] h-[300px] mx-auto'
+		>
 			{/* Triangle Background  */}
 			<img
 				src={BGTriangle}

@@ -6,7 +6,7 @@ function ChoicePlaceholder() {
 	return (
 		<div
 			data-testid='choice-placeholder'
-			className='size-[150px] rounded-full bg-gray-900 sm:order-2'
+			className='flex justify-center items-center size-[150px] rounded-full bg-gray-900 sm:order-2 animate-pulse'
 		></div>
 	);
 }
@@ -19,7 +19,10 @@ type ChoiceProps = {
 
 export default function Choice({ testId, choice, title }: ChoiceProps) {
 	return (
-		<div className='flex flex-col items-center' data-testid={testId}>
+		<div
+			className='flex flex-col items-center whitespace-nowrap'
+			data-testid={testId}
+		>
 			{choice ? (
 				<Option type={choice} isButton={false} />
 			) : (
