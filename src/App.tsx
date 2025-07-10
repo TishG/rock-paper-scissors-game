@@ -10,6 +10,14 @@ import RulesModal from './RulesModal/RulesModalSelecter';
 import ScoreBoard from './ScoreBoard';
 import GameStarter from './GameStarter';
 
+function getHouseChoice() {
+	const options: GameButtonValueType[] = Object.values(GAME_BUTTON_TYPES);
+	const randomIndex = Math.floor(Math.random() * options.length);
+	const chosenOption: GameButtonValueType = options[randomIndex];
+
+	return chosenOption;
+}
+
 export default function App() {
 	const [showRulesModal, setShowRulesModal] = useState<boolean>(false);
 	const [score, setScore] = useState<number>(0);
@@ -40,12 +48,8 @@ export default function App() {
 
 	useEffect(() => {
 		if (userChoice != null) {
-			const options: GameButtonValueType[] = Object.values(GAME_BUTTON_TYPES);
-			const randomIndex = Math.floor(Math.random() * options.length);
-			const chosenOption: GameButtonValueType = options[randomIndex];
-
 			setTimeout(() => {
-				setHouseChoice(chosenOption);
+				setHouseChoice(getHouseChoice);
 			}, 1000);
 		}
 	}, [userChoice]);
