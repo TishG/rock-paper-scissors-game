@@ -2,7 +2,7 @@
 	"name": "rock-paper-scissors-game",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://tishg.github.io/rock-paper-scissors-game",
+	"homepage": "https://tishg.github.io/rock-paper-scissors-game/",
 	"dependencies": {
 		"@testing-library/dom": "^10.4.0",
 		"@testing-library/react": "^16.3.0",
