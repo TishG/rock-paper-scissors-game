@@ -3,10 +3,10 @@ import {
 	GameButtonValueType,
 } from './constants/gameButtonTypes';
 
-import BGTriangle from './bg-triangle.svg';
 import GameActive from './GameActive';
-
 import OptionButton from './OptionButton';
+
+import BGTriangle from './images/bg-triangle.svg';
 
 type GameStarterProps = {
 	isGameActive: boolean;

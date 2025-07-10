@@ -1,7 +1,7 @@
 import { MouseEvent } from 'react';
 
-import imageRulesLogo from '../image-rules.svg';
-import close from '../icon-close.svg';
+import imageRulesLogo from '../images/image-rules.svg';
+import close from '../images/icon-close.svg';
 
 type RulesModalMobileProps = {
 	show: boolean;

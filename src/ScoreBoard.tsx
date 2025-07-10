@@ -1,4 +1,4 @@
-import GameTitle from './logo.svg';
+import GameTitle from './images/logo.svg';
 
 type ScoreBoardProps = {
 	score: number;
@@ -27,7 +27,10 @@ export default function ScoreBoard({
 				<div className='text-sm lg:text-base text-blue-800 font-bold tracking-wider '>
 					score
 				</div>
-				<div className='font-bold text-4xl lg:text-6xl text-slate-700'>
+				<div
+					data-testid='score'
+					className='font-bold text-4xl lg:text-6xl text-slate-700'
+				>
 					{score}
 				</div>
 			</div>

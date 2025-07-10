@@ -1,6 +1,6 @@
-import Paper from './icon-paper.svg';
-import Rock from './icon-rock.svg';
-import Scissors from './icon-scissors.svg';
+import Paper from './images/icon-paper.svg';
+import Rock from './images/icon-rock.svg';
+import Scissors from './images/icon-scissors.svg';
 
 type OptionProps = {
 	type: string;
