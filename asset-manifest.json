@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/rock-paper-scissors-game/static/css/main.25fb1ee7.css",
-    "main.js": "/rock-paper-scissors-game/static/js/main.be6f4e53.js",
+    "main.css": "/rock-paper-scissors-game/static/css/main.206d5563.css",
+    "main.js": "/rock-paper-scissors-game/static/js/main.c5dde0ef.js",
     "static/media/main-background.jpg": "/rock-paper-scissors-game/static/media/main-background.35cffa6e468ff120d2da.jpg",
     "static/media/logo.svg": "/rock-paper-scissors-game/static/media/logo.a4a2b39fefcdb6a1a8088c4dba8f3d93.svg",
     "static/media/image-rules.svg": "/rock-paper-scissors-game/static/media/image-rules.258b753fb6284dc8ae00c5b2fa7938c0.svg",
@@ -11,11 +11,11 @@
     "static/media/icon-rock.svg": "/rock-paper-scissors-game/static/media/icon-rock.476e90a9646a87bb3645d2f09f4f7fba.svg",
     "static/media/icon-close.svg": "/rock-paper-scissors-game/static/media/icon-close.bde602ecd1a4e55e0c27137ed651e027.svg",
     "static/media/bg-triangle.svg": "/rock-paper-scissors-game/static/media/bg-triangle.77c6ca418d3751d8f71789234314a8b9.svg",
-    "main.25fb1ee7.css.map": "/rock-paper-scissors-game/static/css/main.25fb1ee7.css.map",
-    "main.be6f4e53.js.map": "/rock-paper-scissors-game/static/js/main.be6f4e53.js.map"
+    "main.206d5563.css.map": "/rock-paper-scissors-game/static/css/main.206d5563.css.map",
+    "main.c5dde0ef.js.map": "/rock-paper-scissors-game/static/js/main.c5dde0ef.js.map"
   },
   "entrypoints": [
-    "static/css/main.25fb1ee7.css",
-    "static/js/main.be6f4e53.js"
+    "static/css/main.206d5563.css",
+    "static/js/main.c5dde0ef.js"
   ]
 }
