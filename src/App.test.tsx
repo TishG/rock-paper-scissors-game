@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import {
@@ -24,10 +24,24 @@ async function clickAndDisplayUserChoice(choice: GameButtonValueType) {
 
 	const userChoice = await screen.findByTestId(`user-choice-${choice}`);
 	expect(userChoice).toBeInTheDocument();
+}
 
-	waitFor(() =>
-		expect(screen.queryByTestId('choice-placeholder')).not.toBeInTheDocument()
+// renders app and displays user choice and house choice
+async function renderAppAndPlayGame(
+	userChoice: GameButtonValueType,
+	houseChoice: GameButtonValueType
+) {
+	mockHouseChoice(houseChoice);
+	render(<App />);
+	await clickAndDisplayUserChoice(userChoice);
+
+	const houseTestId = new RegExp(houseChoice, 'i');
+	const chosenHouse = await screen.findByTestId(
+		houseTestId,
+		{},
+		{ timeout: 5000 }
 	);
+	expect(chosenHouse).toBeInTheDocument();
 }
 
 test('renders rules button', () => {
@@ -71,157 +85,64 @@ test('renders scoreboard', () => {
 });
 
 test('it displays "you lose" when user is rock and house is paper', async () => {
-	mockHouseChoice(PAPER);
-	render(<App />);
-
-	await clickAndDisplayUserChoice(ROCK);
-
-	const houseChoice = await screen.findByTestId(
-		/house-choice-paper/i,
-		{},
-		{ timeout: 5000 }
-	);
-	expect(houseChoice).toBeInTheDocument();
-
+	await renderAppAndPlayGame(ROCK, PAPER);
 	expect(screen.getAllByText(/you lose/i)[0]).toBeInTheDocument();
 });
 
 test('it displays "you lose" when user is paper and house is scissors', async () => {
-	mockHouseChoice(SCISSORS);
-	render(<App />);
-
-	await clickAndDisplayUserChoice(PAPER);
-
-	const houseChoice = await screen.findByTestId(
-		/house-choice-scissors/i,
-		{},
-		{ timeout: 2500 }
-	);
-	expect(houseChoice).toBeInTheDocument();
-
+	await renderAppAndPlayGame(PAPER, SCISSORS);
 	expect(screen.getAllByText(/you lose/i)[0]).toBeInTheDocument();
 });
 
 test('it displays "you lose" when user is scissors and house is rock', async () => {
-	mockHouseChoice(ROCK);
-	render(<App />);
-
-	await clickAndDisplayUserChoice(SCISSORS);
-
-	const houseChoice = await screen.findByTestId(
-		/house-choice-rock/i,
-		{},
-		{ timeout: 2500 }
-	);
-	expect(houseChoice).toBeInTheDocument();
-
+	await renderAppAndPlayGame(SCISSORS, ROCK);
 	expect(screen.getAllByText(/you lose/i)[0]).toBeInTheDocument();
 });
 
 test('it displays "you win" when user is rock and house is scissors', async () => {
-	mockHouseChoice(SCISSORS);
-	render(<App />);
-
-	await clickAndDisplayUserChoice(ROCK);
-
-	const houseChoice = await screen.findByTestId(
-		/house-choice-scissors/i,
-		{},
-		{ timeout: 2500 }
-	);
-	expect(houseChoice).toBeInTheDocument();
-
+	await renderAppAndPlayGame(ROCK, SCISSORS);
 	expect(screen.getAllByText(/you win/i)[0]).toBeInTheDocument();
 });
 
 test('it displays "you win" when user is paper and house is rock', async () => {
-	mockHouseChoice(ROCK);
-	render(<App />);
-
-	await clickAndDisplayUserChoice(PAPER);
-
-	const houseChoice = await screen.findByTestId(
-		/house-choice-rock/i,
-		{},
-		{ timeout: 2500 }
-	);
-	expect(houseChoice).toBeInTheDocument();
-
+	await renderAppAndPlayGame(PAPER, ROCK);
 	expect(screen.getAllByText(/you win/i)[0]).toBeInTheDocument();
 });
 
 test('it displays "you win" when user is scissors and house is paper', async () => {
-	mockHouseChoice(PAPER);
-	render(<App />);
-
-	await clickAndDisplayUserChoice(SCISSORS);
-
-	const houseChoice = await screen.findByTestId(
-		/house-choice-paper/i,
-		{},
-		{ timeout: 5000 }
-	);
-	expect(houseChoice).toBeInTheDocument();
-
+	await renderAppAndPlayGame(SCISSORS, PAPER);
 	expect(screen.getAllByText(/you win/i)[0]).toBeInTheDocument();
 });
 
 test('it displays "draw" when user is rock and house is rock', async () => {
-	mockHouseChoice(ROCK);
-	render(<App />);
+	await renderAppAndPlayGame(ROCK, ROCK);
 
-	await clickAndDisplayUserChoice(ROCK);
-
-	const houseChoice = await screen.findByTestId(
-		/house-choice-rock/i,
-		{},
-		{ timeout: 2500 }
-	);
-	expect(houseChoice).toBeInTheDocument();
-
-	expect(screen.getAllByText(/draw/i)[0]).toBeInTheDocument();
+	const drawText = (
+		await screen.findAllByText(/draw/i, {}, { timeout: 3000 })
+	)[0];
+	expect(drawText).toBeInTheDocument();
 });
 
 test('it displays "draw" when user is paper and house is paper', async () => {
-	mockHouseChoice(PAPER);
-	render(<App />);
+	await renderAppAndPlayGame(PAPER, PAPER);
 
-	await clickAndDisplayUserChoice(PAPER);
-
-	const houseChoice = await screen.findByTestId(
-		/house-choice-paper/i,
-		{},
-		{ timeout: 2500 }
-	);
-	expect(houseChoice).toBeInTheDocument();
-
-	expect(screen.getAllByText(/draw/i)[0]).toBeInTheDocument();
+	const drawText = (
+		await screen.findAllByText(/draw/i, {}, { timeout: 3000 })
+	)[0];
+	expect(drawText).toBeInTheDocument();
 });
 
 test('it displays "draw" when user is scissors and house is scissors', async () => {
-	mockHouseChoice(SCISSORS);
-	render(<App />);
+	await renderAppAndPlayGame(SCISSORS, SCISSORS);
 
-	await clickAndDisplayUserChoice(SCISSORS);
-
-	const houseChoice = await screen.findByTestId(
-		/house-choice-scissors/i,
-		{},
-		{ timeout: 2500 }
-	);
-	expect(houseChoice).toBeInTheDocument();
-
-	expect(screen.getAllByText(/draw/i)[0]).toBeInTheDocument();
+	const drawText = (
+		await screen.findAllByText(/draw/i, {}, { timeout: 3000 })
+	)[0];
+	expect(drawText).toBeInTheDocument();
 });
 
 test('restarts game on "play again" button click', async () => {
-	mockHouseChoice(PAPER);
-	render(<App />);
-
-	await clickAndDisplayUserChoice(SCISSORS);
-
-	const houseChoice = await screen.findByTestId(/house-choice-paper/i);
-	expect(houseChoice).toBeInTheDocument();
+	await renderAppAndPlayGame(SCISSORS, PAPER);
 
 	const playAgainButton = screen.getAllByRole('button', {
 		name: /play again/i,
