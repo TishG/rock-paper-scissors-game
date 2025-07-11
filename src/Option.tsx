@@ -40,13 +40,13 @@ export default function Option({ type, isButton }: OptionProps) {
 		<div
 			className={`${
 				isButton ? `${buttonStyle} cursor-pointer absolute` : 'sm:order-2'
-			} flex justify-center items-center z-10 bg-white size-[150px] rounded-full border-[18px] border-solid shadow-xl ${typeStyle}`}
+			} flex justify-center items-center z-10 bg-white max-xs:size-[120px] size-[150px] max-xs:border-[14px]  border-[18px] border-solid rounded-full  shadow-xl ${typeStyle}`}
 		>
 			<div>
 				<img
 					src={src}
 					alt={alt}
-					className={`object-contain w-[18] ${marginRight}`}
+					className={`object-contain max-xs:w-[12] w-[18] ${marginRight}`}
 				/>
 			</div>
 		</div>
