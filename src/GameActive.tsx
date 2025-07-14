@@ -63,7 +63,7 @@ function GameActive({
 		if (isUserWinner) {
 			addToScore();
 		}
-	}, [isUserWinner]);
+	}, [isUserWinner, addToScore]);
 	return (
 		<div data-testid='game-active'>
 			<div
