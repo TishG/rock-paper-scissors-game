@@ -2,11 +2,10 @@ import {
 	GAME_BUTTON_TYPES,
 	GameButtonValueType,
 } from './constants/gameButtonTypes';
+import { bGTriangle } from './constants/imagePaths';
 
 import GameActive from './GameActive';
 import OptionButton from './OptionButton';
-
-import BGTriangle from './images/bg-triangle.svg';
 
 type GameStarterProps = {
 	isGameActive: boolean;
@@ -40,7 +39,7 @@ export default function GameStarter({
 		>
 			{/* Triangle Background  */}
 			<img
-				src={BGTriangle}
+				src={bGTriangle}
 				alt='triangle background'
 				className='absolute top-0 left-0 w-full h-full object-contain z-0'
 			/>

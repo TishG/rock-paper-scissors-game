@@ -1,7 +1,5 @@
 import { MouseEvent } from 'react';
-
-import imageRulesLogo from '../images/image-rules.svg';
-import close from '../images/icon-close.svg';
+import { imageRulesLogo, close } from '../constants/imagePaths';
 
 type RulesModalDesktopProps = {
 	show: boolean;

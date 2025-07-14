@@ -1,6 +1,4 @@
-import Paper from './images/icon-paper.svg';
-import Rock from './images/icon-rock.svg';
-import Scissors from './images/icon-scissors.svg';
+import { rock, paper, scissors } from './constants/imagePaths';
 
 type OptionProps = {
 	type: string;
@@ -12,21 +10,21 @@ export default function Option({ type, isButton }: OptionProps) {
 
 	const types = {
 		paper: {
-			src: Paper,
+			src: paper,
 			alt: 'Paper',
 			marginRight: 'mr-[6px]',
 			buttonStyle: 'top-[1/28] left-[30px] -translate-x-1/2 -translate-y-1/2',
 			typeStyle: 'border-blue-500 shadow-blue-500/50',
 		},
 		rock: {
-			src: Rock,
+			src: rock,
 			alt: 'Rock',
 			marginRight: 'mr-[3px]',
 			buttonStyle: 'bottom-0 left-1/2 -translate-x-1/2',
 			typeStyle: 'border-red-500 shadow-red-500/50',
 		},
 		scissors: {
-			src: Scissors,
+			src: scissors,
 			alt: 'Scissors',
 			marginRight: '',
 			buttonStyle: 'top-[1/28] right-[-30px] -translate-y-1/2',

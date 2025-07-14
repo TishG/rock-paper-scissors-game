@@ -1,4 +1,4 @@
-import GameTitle from './images/logo.svg';
+import { gameTitle } from './constants/imagePaths';
 
 type ScoreBoardProps = {
 	score: number;
@@ -19,7 +19,7 @@ export default function ScoreBoard({
 				<img
 					className='h-[70px] lg:h-[100px] object-contain'
 					data-testid='game-logo'
-					src={GameTitle}
+					src={gameTitle}
 					alt='rock paper scissors game logo'
 				/>
 			</div>
