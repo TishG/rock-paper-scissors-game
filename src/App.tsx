@@ -40,10 +40,10 @@ export default function App() {
 	// preload images
 	useEffect(() => {
 		const img1 = new Image();
-		img1.src = './images/image-rules.svg';
+		img1.src = `${process.env.PUBLIC_URL}/images/image-rules.svg`;
 
 		const img2 = new Image();
-		img2.src = './images/icon-close.svg';
+		img2.src = `${process.env.PUBLIC_URL}/images/icon-close.svg`;
 	}, []);
 
 	useEffect(() => {
