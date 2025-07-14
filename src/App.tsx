@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 import {
 	GameButtonValueType,
@@ -40,10 +40,10 @@ export default function App() {
 	// preload images
 	useEffect(() => {
 		const img1 = new Image();
-		img1.src = `${process.env.PUBLIC_URL}/images/image-rules.svg`;
+		img1.src = `${process.env.PUBLIC_URL}/assets/images/image-rules.svg`;
 
 		const img2 = new Image();
-		img2.src = `${process.env.PUBLIC_URL}/images/icon-close.svg`;
+		img2.src = `${process.env.PUBLIC_URL}/assets/images/icon-close.svg`;
 	}, []);
 
 	useEffect(() => {
@@ -68,7 +68,10 @@ export default function App() {
 					houseChoice={houseChoice}
 					handleUserChoice={handleUserChoice}
 					resetGame={() => handleResetGame()}
-					addToScore={() => setScore(score + 1)}
+					addToScore={useCallback(
+						() => setScore(score + 1),
+						[userChoice, houseChoice]
+					)}
 				/>
 			</div>
 			<RulesModal
