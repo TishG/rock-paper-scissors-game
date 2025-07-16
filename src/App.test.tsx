@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { expect, test, vi, afterEach } from 'vitest';
 
 import {
 	GAME_BUTTON_TYPES,
@@ -13,7 +14,7 @@ const { ROCK, PAPER, SCISSORS } = GAME_BUTTON_TYPES;
 // Mock Math.random() to return choice
 function mockHouseChoice(choice: GameButtonValueType) {
 	let returnValue = choice === PAPER ? 0.4 : choice === SCISSORS ? 0.7 : 0;
-	jest.spyOn(Math, 'random').mockReturnValue(returnValue);
+	vi.spyOn(Math, 'random').mockReturnValue(returnValue);
 }
 
 // clicks rock, paper, or scissors button and displays as the user choice
@@ -43,6 +44,10 @@ async function renderAppAndPlayGame(
 	);
 	expect(chosenHouse).toBeInTheDocument();
 }
+
+afterEach(() => {
+	vi.restoreAllMocks();
+});
 
 test('renders rules button', () => {
 	render(<App />);

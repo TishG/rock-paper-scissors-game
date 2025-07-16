@@ -40,10 +40,10 @@ export default function App() {
 	// preload images
 	useEffect(() => {
 		const img1 = new Image();
-		img1.src = `${process.env.PUBLIC_URL}/assets/images/image-rules.svg`;
+		img1.src = '/assets/images/image-rules.svg';
 
 		const img2 = new Image();
-		img2.src = `${process.env.PUBLIC_URL}/assets/images/icon-close.svg`;
+		img2.src = '/assets/images/icon-close.svg';
 	}, []);
 
 	useEffect(() => {
@@ -58,7 +58,7 @@ export default function App() {
 		<div
 			className={`relative h-screen w-screen overflow-hidden ${
 				showRulesModal ? 'sm:pt-[0px]' : 'pt-[25px]'
-			} bg-[url(../public/assets/original/main-background.jpg)]`}
+			} bg-[url(/assets/images/main-background.jpg)]`}
 		>
 			<ScoreBoard score={score} isRulesModalShowing={showRulesModal} />
 			<div className={`mt-30 ${showRulesModal ? 'hidden sm:block' : 'block'}`}>
