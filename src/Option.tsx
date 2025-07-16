@@ -44,7 +44,7 @@ export default function Option({ type, isButton }: OptionProps) {
 				<img
 					src={src}
 					alt={alt}
-					className={`object-contain max-xs:w-[24px] w-[50px] ${marginRight}`}
+					className={`object-contain max-xs:w-[38px] w-[50px] ${marginRight}`}
 				/>
 			</div>
 		</div>
