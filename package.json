@@ -20,7 +20,7 @@
 		"preview": "vite preview",
 		"test": "vitest",
 		"deploy": "gh-pages -d dist",
-		"release": "npm run build && npm run deploy && git add . && git commit -m \"update site\" && git push origin gh-pages"
+		"release": "npm run build && npm run deploy && git add . && git commit -m \"update site\" && git push gh-pages"
 	},
 	"eslintConfig": {
 		"extends": [
