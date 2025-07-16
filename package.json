@@ -4,7 +4,6 @@
 	"private": true,
 	"homepage": "https://tishg.github.io/rock-paper-scissors-game/",
 	"dependencies": {
-		"@tailwindcss/vite": "^4.1.11",
 		"@testing-library/dom": "^10.4.0",
 		"@types/react": "^19.1.8",
 		"@types/react-dom": "^19.1.6",
@@ -20,7 +19,8 @@
 		"build": "vite build",
 		"preview": "vite preview",
 		"test": "vitest",
-		"deploy": "gh-pages -d dist"
+		"deploy": "gh-pages -d dist",
+		"release": "npm run build && npm run deploy && git add . && git commit -m \"update site\" && git push origin gh-pages"
 	},
 	"eslintConfig": {
 		"extends": [
