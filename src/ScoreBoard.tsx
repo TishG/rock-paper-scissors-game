@@ -13,7 +13,7 @@ export default function ScoreBoard({
 		<div
 			className={`${
 				isRulesModalShowing ? 'hidden sm:flex' : 'flex'
-			} w-[85%] md:w-[75%] lg:w-[45%] mx-auto lg:flex justify-between border-solid border-[3px] border-white/50 rounded-lg lg:rounded-xl p-[25px]`}
+			} min-w-[280px] w-[85%] md:w-[75%] lg:w-[45%] mx-auto lg:flex justify-between border-solid border-[3px] border-white/50 rounded-lg lg:rounded-xl p-[25px]`}
 		>
 			<div>
 				<img

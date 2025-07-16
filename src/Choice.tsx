@@ -6,7 +6,7 @@ function ChoicePlaceholder() {
 	return (
 		<div
 			data-testid='choice-placeholder'
-			className='flex justify-center items-center size-[150px] rounded-full bg-gray-900 sm:order-2 animate-pulse'
+			className='flex justify-center items-center max-xs:size-[120px]  size-[150px] rounded-full bg-gray-900 sm:order-2 animate-pulse'
 		></div>
 	);
 }
@@ -20,7 +20,7 @@ type ChoiceProps = {
 export default function Choice({ testId, choice, title }: ChoiceProps) {
 	return (
 		<div
-			className='flex flex-col items-center whitespace-nowrap'
+			className='flex flex-col items-center sm:whitespace-nowrap'
 			data-testid={testId}
 		>
 			{choice ? (
@@ -28,7 +28,9 @@ export default function Choice({ testId, choice, title }: ChoiceProps) {
 			) : (
 				<ChoicePlaceholder />
 			)}
-			<div className='text-white text-xl my-4 sm:order-1'>{title}</div>
+			<div className='text-white text-xl my-4 sm:order-1 text-center w-full'>
+				{title}
+			</div>
 		</div>
 	);
 }

@@ -35,7 +35,7 @@ export default function GameStarter({
 	) : (
 		<div
 			data-testid='game-starter'
-			className='relative max-xs:w-[200px] w-[300px] h-[300px] mx-auto'
+			className='relative max-xs:size-[200px] size-[300px] mx-auto'
 		>
 			{/* Triangle Background  */}
 			<img
